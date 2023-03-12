@@ -1,0 +1,60 @@
+COMP 321 Project 4: Unix Shell
+<Nathan Hsiao nnh2>, <Juan Cano Duenas jc149>
+
+---(Do not write lines of text that exceed the width of this line.)------------
+
+TESTING STRATEGY
+
+One test that we implemented was testing the bg_fg function. In the trace file,
+we used "fg %1." Instead, we tested "bg %5" with no jobs running. This tests our
+error detection code. If an invalid job id or pid is given, an error is printed
+and nothing else is done.
+
+Another test was running three background jobs at the same time.
+In the shell, we didn "tsh< ./myspin 4 &," "tsh< ./mypin 4." This should two
+concurrent jobs being run at the same time. When we send a SIGTINT handler, 
+it should not affect the processes. We tested in it, and "tsh> jobs," it just
+gave us nothing becasue both jobs were done.
+
+Another test was running inputing an incorrect type. For example,
+we did "tsh< fgg 2." Our program caught the error, and gave an error message
+by checking if any built-in commands were true or if it was an executable. 
+Our error message was "fgg: Command not found."
+
+Another test case was doing sending a SIGINT signal, when the 
+parent process was just sitting there. For example, when the shell was 
+"tsh>", we typed "ctr-c." As expected, it didn't do anything, and the 
+output was "tsh> ctr c"
+
+Another test case was testing it with SIG-CHLD signal. We made 
+sure that when a process terminates, it would be updated in the job list.
+For example, when we did "tsh< ./myspin 10 &" and "tsh< ./myspin 2."
+We did a "ctr-z" to suspend "./myspin 2" in the foreground. We checked it 
+by typing "tsh< jobs" and got "[1] (10796) Running ./myspin 10 &
+[2] (10834) Stopped ./myspin 2." We did this by catching when a process
+is stopped and updating that process in the job list.
+
+Another test case was testing the bg_fg function. In the test case,
+we stopped a process. Now, let's trying killing it. When we kill a process, 
+we shouldn't be able to run it one more time. For example, when we did 
+"tsh> ./myspin 10 &" and "tsh> ./myspin 2" and we killed that process. Now,
+we tested it with "tsh> fg %1" and it the command waited. We checked it 
+with "tsh< jobs" and no jobs were listed. We handled this test case by 
+checking to see if the most updated jobs in the jobs list. "tsh> fg %1"
+
+Another test case was testing the bg_fg function. In this test
+case, we ran "tsh< fg %1." However, there are no jobs. Therfore, caught 
+this error by outputting a message, "1: no such job." We also did 
+the same thing for a pid number. For example, "tsh< fg 45." Therefore,
+we go "(45): no such job.
+
+Another test case, was testing different order of the input.
+For example, we did "tsh fg %1." This should still give an error. We got
+"%1: No such job." We did this by checking only the first occurancace for
+a percent sign. If it is not, then we output an error.
+
+Another white box test case was testing the SIGINT. We tested then by 
+running "tsh< ./myspin 2". Then we terminated the process with "ctr c."
+We got "Job [1] (4397) terminated by signal SIGINT." We handled this
+by catching whenever ctr-c is pressed and sending the process a SIGINT
+signal.
