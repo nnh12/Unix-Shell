@@ -1,7 +1,3 @@
-################
-CS:APP Shell Lab
-################
-
 Files:
 
 Makefile	# Compiles your shell program and runs the tests
