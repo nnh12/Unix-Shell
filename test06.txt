@@ -1,5 +1,5 @@
 #
-# trace06.txt - Forward SIGINT to foreground job.
+# test06.txt - Forward SIGINT to foreground job.
 #
 /bin/echo tsh> ./myspin 4
 ./myspin 4 
