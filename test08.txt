@@ -1,5 +1,5 @@
 #
-# test08.txt - Forward SIGTSTP only to foreground job.
+# test08.txt - Forward SIGTSTP to foreground job.
 #
 /bin/echo tsh> ./myspin 4 \046
 ./myspin 4 &
