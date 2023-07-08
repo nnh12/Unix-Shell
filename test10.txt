@@ -1,5 +1,5 @@
 #
-# trace10.txt - Process fg builtin command. 
+# test10.txt - Process fg builtin command. 
 #
 /bin/echo tsh> ./myspin 4 \046
 ./myspin 4 &
