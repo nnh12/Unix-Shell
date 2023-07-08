@@ -1,9 +1,7 @@
 /*
- * COMP 321 Project 4: Shell
  *
  * This program implements a tiny shell with job control.
- *
- * <Nathan Hsiao nnh2>, <Juan Cano Duenas jc149>
+ * <Nathan Hsiao >
  */
 
 #include <sys/types.h>
