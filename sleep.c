@@ -1,7 +1,7 @@
 /* 
- * myint.c - Another handy routine for testing your tiny shell
+ * sleep.c - A routine to test tiny shell
  * 
- * usage: myint <n>
+ * usage: sleep <n>
  * Sleeps for <n> seconds and sends SIGINT to itself.
  *
  */
