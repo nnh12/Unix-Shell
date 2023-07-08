@@ -1,5 +1,5 @@
 # Unix Shell
 My own custom implementation of a command-line interpreter Unix-like operating systems.
 
-## tsh.c
+## unix_shell.c
 Code for the unix shell. To run the program, run the executable tshref.
