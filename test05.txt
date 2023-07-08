@@ -1,5 +1,5 @@
 #
-# trace05.txt - Process jobs builtin command.
+# test05.txt - Process jobs builtin command.
 #
 /bin/echo tsh> ./myspin 2 \046
 ./myspin 2 &
