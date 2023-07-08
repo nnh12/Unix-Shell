@@ -1,5 +1,5 @@
 #
-# trace04.txt - Run a background job.
+# test04.txt - Run a background job.
 #
 /bin/echo tsh> ./myspin 1 \046
 ./myspin 1 &
